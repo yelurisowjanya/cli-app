@@ -1,48 +1,38 @@
 {
-  "name": "@bcoe/v8-coverage",
-  "version": "0.2.3",
-  "description": "Helper functions for V8 coverage files.",
-  "author": "Charles Samborski <demurgos@demurgos.net> (https://demurgos.net)",
-  "license": "MIT",
-  "main": "dist/lib/index",
-  "types": "dist/lib/index.d.ts",
+  "name": "@jest/types",
+  "version": "29.0.2",
   "repository": {
     "type": "git",
-    "url": "git://github.com/demurgos/v8-coverage.git"
+    "url": "https://github.com/facebook/jest.git",
+    "directory": "packages/jest-types"
   },
-  "homepage": "https://demurgos.github.io/v8-coverage",
-  "scripts": {
-    "prepare": "gulp all:tsconfig.json && gulp dist",
-    "pretest": "gulp lib:build",
-    "test": "gulp test",
-    "lint": "gulp :lint:fix"
+  "engines": {
+    "node": "^14.15.0 || ^16.10.0 || >=18.0.0"
+  },
+  "license": "MIT",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "default": "./build/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@jest/schemas": "^29.0.0",
+    "@types/istanbul-lib-coverage": "^2.0.0",
+    "@types/istanbul-reports": "^3.0.0",
+    "@types/node": "*",
+    "@types/yargs": "^17.0.8",
+    "chalk": "^4.0.0"
   },
   "devDependencies": {
-    "@types/chai": "^4.1.4",
-    "@types/gulp": "^4.0.5",
-    "@types/minimist": "^1.2.0",
-    "@types/mocha": "^5.2.2",
-    "@types/node": "^10.5.4",
-    "chai": "^4.1.2",
-    "codecov": "^3.0.2",
-    "gulp": "^4.0.0",
-    "gulp-cli": "^2.0.1",
-    "minimist": "^1.2.0",
-    "pre-commit": "^1.2.2",
-    "ts-node": "^8.3.0",
-    "turbo-gulp": "^0.20.1"
+    "@tsd/typescript": "~4.8.2",
+    "tsd-lite": "^0.6.0"
   },
-  "nyc": {
-    "include": [
-      "build/test/lib/**/*.js",
-      "build/test/lib/**/*.mjs"
-    ],
-    "reporter": [
-      "text",
-      "html"
-    ],
-    "extension": [
-      ".mjs"
-    ]
-  }
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "616fcf56bb8481d29ba29cc34be32a92b1cf85e5"
 }
